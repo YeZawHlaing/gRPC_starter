@@ -10,12 +10,13 @@ import org.backend.walletservice.service.WalletService;
 
 @GrpcService
 @RequiredArgsConstructor
-public class WalletGrpcService extends WalletServiceGrpc.WalletServiceImplBase {
+public class WalletGrpcService extends WalletServiceGrpc.WalletServiceImplBase{
 
+    //WalletServiceGrpc.WalletServiceImplBase
     private final WalletService walletService;
 
     @Override
-    public void getBalance(CreateWalletRequest request,
+    public void createWallet(CreateWalletRequest request,
                            StreamObserver<WalletResponse> responseObserver) {
 
         var wallet = walletService.getWallet(request.getUserId());
